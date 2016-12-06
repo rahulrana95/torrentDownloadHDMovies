@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Torrents</title>
+	
+	<!--Standard Css -->
+	<link rel="stylesheet" href="">
+	<!-- -->
+
+	<!-- standard scripts js-->
+	<script src="angular.js"></script>
+	<!-- -->
+
+	<!-- Custom Css-->
+	<!-- -->
+
+	<!-- Custom Js-->
+	<script type="text/javascript"  src="index.js" ></script>
+
+	<!-- -->
+
+</head>
+<body ng-app="myTorrent"  ng-controller="IndexCtrl">
+
+			<ul class="nav nav-tabs">
+		  
+		  <li role="presentation" class="active"><a href="#">Home</a></li>
+		  <li role="presentation"><a href="#">Latest Movies</a></li>
+		  
+			
+			</ul>
+
+			<input type="text" name="movieSearch" ng-model="searchQuery">
+			<button ng-click="searchMovie()">Search Movie</button>
+
+		
+			<div ng-repeat="x in movies">
+					<h1>Name:</h1> <h2>{{x.title}}</h2>
+					<p>Dates Uploaded: {{x.torrents[1].date_uploaded}}</p>
+					<p>Year : {{x.year}}</p>
+					<p>Rating : {{x.rating}}</p>
+					<p>Runtime : {{x.runtime}}</p>
+					<p>Language : {{x.language}}</p>
+					<img src="{{x.medium_cover_image}}">
+					<p>Magnetic Link :<a href="{{x.torrents[0].url}}">Download</a></p>
+					<p>Quality: {{x.torrents[0].quality}} </p>
+					<p>Size : {{x.torrents[0].size}}</p>
+
+
+
+			</div>
+
+
+<div ng-view>
+	
+</div>
+
+
+	
+</body>
+</html>
